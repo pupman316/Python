@@ -10,8 +10,12 @@
           <option name="url" value="https://github.com/pupman316/HelloWorld.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://team-popo.visualstudio.com/MyFirstProject/_git/Python" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="C:\Users\Flores\PycharmProjects" />
+    <option name="cloneParentDir" value="C:\WORK\Python" />
   </component>
 </application>
