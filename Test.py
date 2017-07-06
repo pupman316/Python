@@ -9,21 +9,14 @@ print("Hello World", "\n")
 
 # Random number generation is handled here
 N = 50
-x = np.linspace(0, 1, N)
+x = np.linspace(0.0, 1.0, N)
 y = np.random.randn(N)
 
 colors = np.random.rand(N)
-area = np.pi * (15 * np.random.rand(N))**2 # 0 to 15 point radii
+area = np.pi * (15 * np.random.rand(N))**2  # 0 to 15 point radii
 
 plt.scatter(x, y, s=area, c=colors, alpha=0.5)
 plt.show()
-
-
-
-
-
-
-
 
 # # Create random data with numpy
 # N = 500
