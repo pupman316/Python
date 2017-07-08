@@ -1,9 +1,10 @@
 # import plotly.plotly as plotLib
 # import plotly.graph_objs as graphLib
-from ShortestPath import Graph
-#from ShortestPath import Vertex
-from ShortestPath import dijkstra
-from ShortestPath import shortest
+#from ShortestPath import Graph
+from ShortestPath import Node
+#from ShortestPath import dijkstra
+#from ShortestPath import shortest
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -49,35 +50,49 @@ import numpy as np
 #
 # print("\n", "Goodbye World!")
 
-g = Graph()
+print("Shortest Path! Oh Yeah!\n")
 
-g.add_vertex('a')
-g.add_vertex('b')
-g.add_vertex('c')
-g.add_vertex('d')
-g.add_vertex('e')
-g.add_vertex('f')
+testy = Node("a")
+testy2 = Node("b")
 
-g.add_edge('a', 'b', 7)
-g.add_edge('a', 'c', 9)
-g.add_edge('a', 'f', 14)
-g.add_edge('b', 'c', 10)
-g.add_edge('b', 'd', 15)
-g.add_edge('c', 'd', 11)
-g.add_edge('c', 'f', 2)
-g.add_edge('d', 'e', 6)
-g.add_edge('e', 'f', 9)
+testy.add_neighbor("b", 12)
+testy.add_neighbor("c", 14)
 
+testy2.add_neighbor("c", 6)
+
+# print(testy.get_connections(), "\n")
+print(testy)
+print(testy2)
+
+# g = Graph()
+#
+# g.add_vertex('a')
+# g.add_vertex('b')
+# g.add_vertex('c')
+# g.add_vertex('d')
+# g.add_vertex('e')
+# g.add_vertex('f')
+#
+# g.add_edge('a', 'b', 7)
+# g.add_edge('a', 'c', 9)
+# g.add_edge('a', 'f', 14)
+# g.add_edge('b', 'c', 10)
+# g.add_edge('b', 'd', 15)
+# g.add_edge('c', 'd', 11)
+# g.add_edge('c', 'f', 2)
+# g.add_edge('d', 'e', 6)
+# g.add_edge('e', 'f', 9)
+#
 # print("Graph data:")
-# for v in g.vert_dict:
+# for v in g.vert_dict.items():
 #     for w in v.get_connections():
 #         vid = v.get_id()
 #         wid = w.get_id()
 #         print('( %s , %s, %3d)') % (vid, wid, v.get_weight(w))
-
-dijkstra(g, g.get_vertex('a'), g.get_vertex('e'))
-
-target = g.get_vertex('e')
-path = [target.get_id()]
-shortest(target, path)
-print('The shortest path : %s') % (path[::-1])
+#
+# dijkstra(g, g.get_vertex('a'), g.get_vertex('e'))
+#
+# target = g.get_vertex('e')
+# path = [target.get_id()]
+# shortest(target, path)
+# print('The shortest path : %s') % (path[::-1])
