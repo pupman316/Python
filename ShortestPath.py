@@ -1,13 +1,15 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
+import heapq
+
 
 class Vertex:
     def __init__(self, node):
         self.id = node
         self.adjacent = {}
         # set distance for all nodes to "infinity"
-        self.distance = sys.maxint
+        self.distance = sys.maxsize
         # Mark all nodes unvisited
         self.visited = False
         # Predecessor
@@ -37,13 +39,14 @@ class Vertex:
     def __str__(self):
         return str(self.id) + ' adjacent to ' + str([x.id for x in self.adjacent])
 
+
 class Graph:
     def __init__(self):
         self.vert_dict = {}
         self.num_vertices = 0
 
     def __iter__(self):
-        return iter(self.vert_dict.value())
+        return iter(self.vert_dict.items())
 
     def add_vertex(self, node):
         self.num_vertices += 1
@@ -77,7 +80,6 @@ def shortest(v, path):
         shortest(v.previous, path)
     return
 
-import heapq
 
 def dijkstra(aGraph, start, target):
     print("Dijkstra's shortest path")
