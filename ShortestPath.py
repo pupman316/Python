@@ -9,7 +9,7 @@ class Node:
         self.id = designation
         self.adjacent = {}
         # all nodes have initial cost of "infinity"
-        self.cost = sys.maxsize
+        self.weight = sys.maxsize
         # all nodes are initially unvisited
         self.visited = False
         # Predecessor
@@ -21,11 +21,11 @@ class Node:
     def get_connections(self):
         return self.adjacent
 
-    def get_cost(self):
-        return self.cost
+    def get_weight(self):
+        return self.weight
 
-    def set_cost(self, new_cost):
-        self.cost = new_cost
+    def set_weight(self, new_weight):
+        self.weight = new_weight
 
     def set_previous(self, prev):
         self.previous = prev
@@ -45,35 +45,29 @@ class Graph:
     def __iter__(self):
         return iter(self.node_dict)
 
-# class Graph:
-#     def __iter__(self):
-#         return iter(self.vert_dict.items())
-#
-#     def add_vertex(self, node):
-#         self.num_vertices += 1
-#         new_vertex = Vertex(node)
-#         self.vert_dict[node] = new_vertex
-#         return new_vertex
-#
-#     def get_vertex(self, n):
-#         if n in self.vert_dict:
-#             return self.vert_dict[n]
-#         else:
-#             return None
-#
-#     def add_edge(self, frm, to, cost=0):
-#         if frm not in self.vert_dict:
-#             self.add_vertex(frm)
-#         if to not in self.vert_dict:
-#             self.add_vertex(to)
-#
-#         self.vert_dict[frm].add_neighbor(self.vert_dict[to], cost)
-#         self.vert_dict[to].add_neighbor(self.vert_dict[frm], cost)
-#
-#     def get_vertices(self):
-#         return self.vert_dict.items()
-#
-#
+    def add_node(self, new_node):
+        self.num_nodes += 1
+        the_node = Node(new_node)
+        self.node_dict[new_node] = the_node
+        # return the_node
+
+    def get_node(self, node):
+        if node in self.node_dict:
+            return self.node_dict[node]
+        else:
+            return None
+
+    def add_edge(self, frm, to, cost=0):
+        if frm not in self.node_dict:
+            self.add_node(frm)
+        if to not in self.node_dict:
+            self.add_node(to)
+        self.node_dict[frm].add_neighbor(self.node_dict[to], cost)
+        self.node_dict[to].add_neighbor(self.node_dict[frm], cost)
+
+    def get_nodes(self):
+        return self.node_dict
+
 # def shortest(v, path):
 #     ''' make shortest path from v.previous '''
 #     if v.previous:

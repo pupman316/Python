@@ -1,9 +1,12 @@
 # import plotly.plotly as plotLib
 # import plotly.graph_objs as graphLib
-#from ShortestPath import Graph
+from ShortestPath import Graph
 from ShortestPath import Node
-#from ShortestPath import dijkstra
-#from ShortestPath import shortest
+# from ShortestPath import dijkstra
+# from ShortestPath import shortest
+
+# from DijkstraK import dijkstra
+# from DijkstraK import Graph
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -50,38 +53,44 @@ import numpy as np
 #
 # print("\n", "Goodbye World!")
 
-print("Shortest Path! Oh Yeah!\n")
+print("SHORTEST PATH! Oh Yeah!\n")
 
-testy = Node("a")
-testy2 = Node("b")
+g = Graph()
 
-testy.add_neighbor("b", 12)
-testy.add_neighbor("c", 14)
+g.add_node("a")
+g.add_node("b")
+g.add_node("c")
+g.add_node("d")
+g.add_node("e")
+g.add_node("f")
 
-testy2.add_neighbor("c", 6)
+g.add_edge('a', 'b', 7)
+g.add_edge('a', 'c', 9)
+g.add_edge('a', 'f', 14)
+g.add_edge('b', 'c', 10)
+g.add_edge('b', 'd', 15)
+g.add_edge('c', 'd', 11)
+g.add_edge('c', 'f', 2)
+g.add_edge('d', 'e', 6)
+g.add_edge('e', 'f', 9)
 
-# print(testy.get_connections(), "\n")
-print(testy)
-print(testy2)
+print("Graph data:")
+# print(str(g.get_node("b").get_connections()))  # Testing
+
+print(str(g.get_nodes().id))
+
+# for n in g.node_dict:
+#     print(str(n.get_connections()))
+    # for w in n.get_connections():
+    #     print("Found it! \" Test \"")
+
+# print(str(g.get_node("a")))
+# print(str(g.get_node("c")))
+
 
 # g = Graph()
 #
-# g.add_vertex('a')
-# g.add_vertex('b')
-# g.add_vertex('c')
-# g.add_vertex('d')
-# g.add_vertex('e')
-# g.add_vertex('f')
-#
-# g.add_edge('a', 'b', 7)
-# g.add_edge('a', 'c', 9)
-# g.add_edge('a', 'f', 14)
-# g.add_edge('b', 'c', 10)
-# g.add_edge('b', 'd', 15)
-# g.add_edge('c', 'd', 11)
-# g.add_edge('c', 'f', 2)
-# g.add_edge('d', 'e', 6)
-# g.add_edge('e', 'f', 9)
+
 #
 # print("Graph data:")
 # for v in g.vert_dict.items():
